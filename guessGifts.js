@@ -45,13 +45,13 @@ guessGifts(wishlist, presents); // must return ["Toy Car", "Mini Puzzle"]
 */
 
 function guessGifts(wishlist, presents) {
-    const gNames = new Set()
+    const gNames = []
 
     for (let present of presents) {
-        wishlist.filter(wishItem => wishItem.size === present.size).filter(wishItem => wishItem.clatters === present.clatters).filter(wishItem => wishItem.weight === present.weight).map(wishItem => wishItem.name).forEach(name => gNames.add(name))
+        wishlist.filter(wishItem => wishItem.size === present.size).filter(wishItem => wishItem.clatters === present.clatters).filter(wishItem => wishItem.weight === present.weight).forEach(wishItem => gNames.push(wishItem.name))
     }
 
-    return [...gNames]
+    return gNames
 }
 
 const wishlist = [
